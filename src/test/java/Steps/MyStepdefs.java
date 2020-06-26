@@ -2,13 +2,13 @@ package Steps;
 
 import PageObjects.FBLoginPage;
 import io.cucumber.java.After;
-
 import io.cucumber.java.Scenario;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.OutputType;
@@ -27,7 +27,9 @@ public class MyStepdefs {
     public Scenario scenario;
     @Before
     public void setup(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\kukre\\eclipse-mavenTests\\PageObject\\chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\kukre\\eclipse-mavenTests\\PageObject\\chromedriver.exe");
+ //       driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         lp = new FBLoginPage(driver);
@@ -63,7 +65,7 @@ public class MyStepdefs {
     public void userIsAbleToLogin() throws InterruptedException {
         Thread.sleep(5000);
         String pageTitle = driver.getTitle();
-        Assert.assertTrue(pageTitle.contains("Facebook"));
+        Assert.assertTrue(pageTitle.contains("Facebook2"));
     }
 
     @And("FB Home page is displayed")

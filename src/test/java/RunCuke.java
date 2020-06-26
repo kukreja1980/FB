@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
         features ="src\\test\\java\\Features",
         glue = "Steps",
         monochrome = true,
-        plugin = {"pretty", "html:target/cucumber"}
+        plugin = {"pretty","html:target/cucumber-html-report", "json:target/cucumber.json"}
+
 )
 public class RunCuke {
 
